@@ -23,7 +23,7 @@ class FunInput extends HTMLElement {
      *  attribute.
      */
     static get observedAttributes() {
-        return [];
+        return ['type'];
     };
 
     constructor() {
@@ -42,7 +42,9 @@ class FunInput extends HTMLElement {
      * cases.
      */
     connectedCallback() {
-        
+        this.input = document.createElement('input');
+        this.input.setAttribute('type', this.getAttribute('type'));
+        this.shadowRoot.appendChild(this.input);
     }
 
     /**
@@ -65,6 +67,7 @@ class FunInput extends HTMLElement {
     attributeChangedCallback(name, oldValue, newValue) {
         // respond to a changed attribute here
     }
+
 }
 
 customElements.define("fun-input", FunInput);
