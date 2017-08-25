@@ -1,7 +1,7 @@
 # fun-input
 An HTML custom element implementing the `<fun-input>` element.
 
-![top-nav in action](https://github.com/Kiricon/top-nav/raw/master/screencapture.gif)
+![fun-input in action](https://github.com/Kiricon/fun-input/raw/master/screencapture.gif)
 
 ## Setup
 
@@ -25,7 +25,8 @@ require("fun-input");
 
 ## Usage
 ```HTML
-<fun-input type="text" name="funInput" />
+<fun-input type="text" name="funInput" placeholder="Enter text here..."></fun-input>
+<fun-input type="password" name="funInput2" placeholder="Enter password here..."></fun-input>
 ```
 
 
