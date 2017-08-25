@@ -14,6 +14,7 @@ template.innerHTML = `
             border-radius: 3px;
             font-size: 0.8em;
             border: none;
+            width: calc(100% - 1em) ;
         }
 
         input:focus {
@@ -30,7 +31,7 @@ template.innerHTML = `
         }
 
         input:focus + div {
-            width: calc( 100% - 4px);
+            width: 100%;
         }
     </style>
 `;
