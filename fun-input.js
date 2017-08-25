@@ -66,8 +66,14 @@ class FunInput extends HTMLElement {
      * cases.
      */
     connectedCallback() {
+        let attributesToWatch = [
+            'type',
+            'placeholder',
+            'name',
+            'value'
+        ];
         this.input = document.createElement('input');
-        this.input.setAttribute('type', this.getAttribute('type'));
+        this.setAttributes(this.input, attributesToWatch);
         this.shadowRoot.appendChild(this.input);
         this.shadowRoot.appendChild(document.createElement('div'))
     }
@@ -91,6 +97,20 @@ class FunInput extends HTMLElement {
      */
     attributeChangedCallback(name, oldValue, newValue) {
         // respond to a changed attribute here
+    }
+
+    /**
+     * Loop through attray of attributes and set them to an element
+     * from teh custom element
+     * @param {HTMLElement} element 
+     * @param {string[]} attributes 
+     */
+    setAttributes(element, attributes) {
+        for(let i = 0; i < attributes.length; i++) {
+            if(this.hasAttribute(attributes[i])) {
+                element.setAttribute(attributes[i], this.getAttribute(attributes[i]));
+            }
+        }
     }
 
 }
