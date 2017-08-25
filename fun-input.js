@@ -6,7 +6,31 @@ const template = document.createElement("template");
 template.innerHTML = `
     <style>
         :host {
-            display: block;
+            display: inline-block;
+        }
+
+        input {
+            padding: 0.5em;
+            border-radius: 3px;
+            font-size: 0.8em;
+            border: none;
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        div {
+            height: 2px;
+            width: 0px;
+            background-color: var( --fun-input-color ,var(--primary-color, #673AB7));
+            margin: 0px auto;
+            transition: ease width 0.3s;
+            z-index: 1;
+        }
+
+        input:focus + div {
+            width: calc( 100% - 4px);
         }
     </style>
 `;
@@ -45,6 +69,7 @@ class FunInput extends HTMLElement {
         this.input = document.createElement('input');
         this.input.setAttribute('type', this.getAttribute('type'));
         this.shadowRoot.appendChild(this.input);
+        this.shadowRoot.appendChild(document.createElement('div'))
     }
 
     /**
