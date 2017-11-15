@@ -77,6 +77,11 @@ class FunInput extends HTMLElement {
         this.setAttributes(this.input, attributesToWatch);
         this.shadowRoot.appendChild(this.input);
         this.shadowRoot.appendChild(document.createElement('div'))
+
+        this.input.addEventListener('change', () => {
+            this.value = this.input.value;
+            this.setAttribute('value', this.input.value);
+        });
     }
 
     /**
